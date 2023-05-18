@@ -50,16 +50,16 @@ public class Professor {
 	private Degree degree;
 	
 	@OneToOne(mappedBy = "professor")
+	@ToString.Exclude
 	private Course course;
 
 	public Professor(@NotNull @Size(min = 3, max = 20) @Pattern(regexp = "[A-Z]{1}[a-z]+") String name,
 			@NotNull @Size(min = 3, max = 20) @Pattern(regexp = "[A-Z]{1}[a-z]+") String surname,
-			@NotNull Degree degree, Course course) {
+			@NotNull Degree degree) {
 		super();
 		this.name = name;
 		this.surname = surname;
 		this.degree = degree;
-		this.course = course;
 	}
 	
 	
