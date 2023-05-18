@@ -4,8 +4,6 @@ package lv.venta.models;
 
 import org.springframework.data.annotation.Id;
 
-import com.fasterxml.jackson.core.sym.Name;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
