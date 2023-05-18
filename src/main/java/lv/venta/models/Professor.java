@@ -53,12 +53,18 @@ public class Professor {
 	
 	@OneToOne(mappedBy = "professor")
 	private Course course;
-	
-	public Professor(String name, String surname, Degree degree) {
+
+	public Professor(@NotNull @Size(min = 3, max = 20) @Pattern(regexp = "[A-Z]{1}[a-z]+") String name,
+			@NotNull @Size(min = 3, max = 20) @Pattern(regexp = "[A-Z]{1}[a-z]+") String surname,
+			@NotNull Degree degree, Course course) {
+		super();
 		this.name = name;
 		this.surname = surname;
 		this.degree = degree;
+		this.course = course;
 	}
+	
+	
 	
 	
 	
