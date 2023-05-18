@@ -1,6 +1,6 @@
-package lv.venta.models;
+package com.example.demo.models;
 
-import java.util.Collection;
+
 
 import org.springframework.data.annotation.Id;
 
@@ -8,7 +8,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -19,18 +19,19 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Table(name = "student_table")
+@Table(name = "professor_table")
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @ToString
-public class Student {
-	@Column(name = "Ids")
+public class Professor {
+	
+	@Column(name = "Idp")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Setter(value = AccessLevel.NONE)
-	private long ids;
+	private long idp;
 	
 	@Column(name = "Name")
 	@NotNull
@@ -44,17 +45,24 @@ public class Student {
 	@Pattern(regexp = "[A-Z]{1}[a-z]+")
 	private String surname;
 	
-	@OneToMany(mappedBy = "student")
+	@Column(name = "Degree")
+	@NotNull
+	private Degree degree;
+	
+	@OneToOne(mappedBy = "professor")
 	@ToString.Exclude
-	private Collection<Grade> grades;
+	private Course course;
 
-	public Student(@NotNull @Size(min = 3, max = 20) @Pattern(regexp = "[A-Z]{1}[a-z]+") String name,
-			@NotNull @Size(min = 3, max = 20) @Pattern(regexp = "[A-Z]{1}[a-z]+") String surname) {
+	public Professor(@NotNull @Size(min = 3, max = 20) @Pattern(regexp = "[A-Z]{1}[a-z]+") String name,
+			@NotNull @Size(min = 3, max = 20) @Pattern(regexp = "[A-Z]{1}[a-z]+") String surname,
+			@NotNull Degree degree) {
 		super();
 		this.name = name;
 		this.surname = surname;
+		this.degree = degree;
 	}
-
+	
+	
 	
 	
 	

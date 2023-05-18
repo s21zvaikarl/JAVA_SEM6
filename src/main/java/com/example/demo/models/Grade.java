@@ -1,4 +1,4 @@
-package lv.venta.models;
+package com.example.demo.models;
 
 import org.springframework.data.annotation.Id;
 
