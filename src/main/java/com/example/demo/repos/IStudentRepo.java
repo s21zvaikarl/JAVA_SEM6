@@ -1,8 +1,8 @@
-package lv.venta.repos;
+package com.example.demo.repos;
 
 import org.springframework.data.repository.CrudRepository;
 
-import lv.venta.models.Student;
+import com.example.demo.models.Student;
 
 public interface IStudentRepo extends CrudRepository<Student, Long> {
 

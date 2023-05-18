@@ -1,19 +1,16 @@
-package lv.venta.models;
+package com.example.demo.models;
 
 import java.util.Collection;
 
-import org.springframework.data.annotation.Id;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
@@ -23,45 +20,42 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Table(name = "course_table")
+@Table(name = "student_table")
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @ToString
-public class Course {
-	@Column(name = "Idc")
+public class Student {
+	@Column(name = "Ids")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Setter(value = AccessLevel.NONE)
-	private long idc;
+	private long ids;
 	
+	@Column(name = "Name")
 	@NotNull
 	@Size(min = 3, max = 20)
 	@Pattern(regexp = "[A-Z]{1}[a-z]+")
-	@Column(name = "Title")
-	private String title;
+	private String name;
 	
-	@Column(name = "Creditpoints")
-	@Min(value = 1)
-	@Max(value = 20)
-	private int creditpoints;
+	@Column(name = "Surname")
+	@NotNull
+	@Size(min = 3, max = 20)
+	@Pattern(regexp = "[A-Z]{1}[a-z]+")
+	private String surname;
 	
-	@OneToOne
-	@JoinColumn(name = "Idp")
-	private Professor professor;
-	
-	@OneToMany(mappedBy = "course")
+	@OneToMany(mappedBy = "student")
 	@ToString.Exclude
 	private Collection<Grade> grades;
 
-	public Course(@NotNull @Size(min = 3, max = 20) @Pattern(regexp = "[A-Z]{1}[a-z]+") String title,
-			@Min(1) @Max(20) int creditpoints, Professor professor) {
+	public Student(@NotNull @Size(min = 3, max = 20) @Pattern(regexp = "[A-Z]{1}[a-z]+") String name,
+			@NotNull @Size(min = 3, max = 20) @Pattern(regexp = "[A-Z]{1}[a-z]+") String surname) {
 		super();
-		this.title = title;
-		this.creditpoints = creditpoints;
-		this.professor = professor;
+		this.name = name;
+		this.surname = surname;
 	}
+
 	
 	
 	

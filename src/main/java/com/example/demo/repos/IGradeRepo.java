@@ -1,8 +1,8 @@
-package lv.venta.repos;
+package com.example.demo.repos;
 
 import org.springframework.data.repository.CrudRepository;
 
-import lv.venta.models.Grade;
+import com.example.demo.models.Grade;
 
 public interface IGradeRepo extends CrudRepository<Grade, Long>{
 

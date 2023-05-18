@@ -5,15 +5,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import lv.venta.models.Course;
-import lv.venta.models.Degree;
-import lv.venta.models.Grade;
-import lv.venta.models.Professor;
-import lv.venta.models.Student;
-import lv.venta.repos.ICourseRepo;
-import lv.venta.repos.IGradeRepo;
-import lv.venta.repos.IProfessorRepo;
-import lv.venta.repos.IStudentRepo;
+import com.example.demo.models.Course;
+import com.example.demo.models.Degree;
+import com.example.demo.models.Grade;
+import com.example.demo.models.Professor;
+import com.example.demo.models.Student;
+import com.example.demo.repos.ICourseRepo;
+import com.example.demo.repos.IGradeRepo;
+import com.example.demo.repos.IProfessorRepo;
+import com.example.demo.repos.IStudentRepo;
 
 @SpringBootApplication
 public class JavaSem6Application {
