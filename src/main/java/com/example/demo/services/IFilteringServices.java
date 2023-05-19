@@ -16,13 +16,13 @@ public interface IFilteringServices {
 	
 	public ArrayList<Grade> retrieveAllGrades();
 	
-	public ArrayList<Grade> retrieveGradesByStudent(long id);
+	public ArrayList<Grade> retrieveGradesByStudentId(long id);
 	
-	public abstract void retrieveCoursesByStudent();
+	public ArrayList<Student> retrieveCoursesByStudentId(long id);
 	
-	public abstract void retrieveCoursesByProfessor();
+	public ArrayList<Professor> retrieveCoursesByProfessorId(long id);
 	
-	public abstract double calculateAVGGradeInCourse();
+	public float calculateAVGGradeInCourseId(long id);
 	
 	
 }
