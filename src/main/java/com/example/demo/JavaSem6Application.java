@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -39,10 +42,17 @@ public class JavaSem6Application {
 				stRepo.save(s1);
 				stRepo.save(s2);
 				
-				Course c1 = new Course("Haosa teorija", 4, p1);
-				Course c2 = new Course("Ekonomikas pamati", 2, p2);
+				Course c1 = new Course("Haosa teorija", 4, new ArrayList<>(Arrays.asList(p1)));
+				Course c2 = new Course("Ekonomikas pamati", 2, new ArrayList<>(Arrays.asList(p2)));
+				Course c3 = new Course("Dabas zinatnes", 1, new ArrayList<>(Arrays.asList(p1, p2)));
 				coRepo.save(c1);
 				coRepo.save(c2);
+				coRepo.save(c3);
+				
+				c1.addProfessor(p1);
+				c2.addProfessor(p2);
+				c3.addProfessor(p1);
+				c3.addProfessor(p2);
 				
 				grRepo.save(new Grade(5, s1, c1));
 				grRepo.save(new Grade(10, s1, c2));
