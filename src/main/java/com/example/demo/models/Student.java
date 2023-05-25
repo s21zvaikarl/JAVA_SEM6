@@ -51,7 +51,6 @@ public class Student {
 
 	public Student(@NotNull @Size(min = 3, max = 20) @Pattern(regexp = "[A-Z]{1}[a-z]+") String name,
 			@NotNull @Size(min = 3, max = 20) @Pattern(regexp = "[A-Z]{1}[a-z]+") String surname) {
-		super();
 		this.name = name;
 		this.surname = surname;
 	}
