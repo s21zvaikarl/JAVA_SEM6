@@ -50,6 +50,11 @@ public class Grade {
 		this.student = student;
 		this.course = course;
 	}
+
+	public float getGvalue() {
+		// TODO Auto-generated method stub
+		return gvalue;
+	}
 	
 	
 }
